@@ -1,0 +1,12 @@
+{
+  "Import": {
+    "prefix": "import statement",
+    "scope": "typescript,typescriptreact",
+    "body": ["import { $2 } from \"${1:./}\";"]
+  },
+  "Export": {
+    "prefix": "export statement",
+    "scope": "typescript,typescriptreact",
+    "body": ["export { $2 } from \"${1:./}\";"]
+  }
+}

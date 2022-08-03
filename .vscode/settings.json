@@ -1,0 +1,50 @@
+{
+  // ---------------------------------------------------------------------------------------------------------------------------
+  // エディタ
+  // ---------------------------------------------------------------------------------------------------------------------------
+  "editor.tabCompletion": "on",
+  "editor.rulers": [128],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": ["source.fixAll.eslint", "source.fixAll.stylelint"],
+
+  // ---------------------------------------------------------------------------------------------------------------------------
+  // ファイル
+  // ---------------------------------------------------------------------------------------------------------------------------
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.cache": true,
+    "**/.vercel": true,
+    "**/.next": true,
+    "packages/**/lib": true,
+    "projects/server/**/lib": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true,
+    "**/.cache/**": true,
+    "**/.vercel/**": true,
+    "**/.next/**": true
+  },
+  "search.followSymlinks": true,
+
+  // ---------------------------------------------------------------------------------------------------------------------------
+  // エクステンション
+  // ---------------------------------------------------------------------------------------------------------------------------
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "stylelint.validate": ["css"],
+  "svg.preview.background": "transparent",
+
+  // ---------------------------------------------------------------------------------------------------------------------------
+  // 言語
+  // ---------------------------------------------------------------------------------------------------------------------------
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.suggest.autoImports": false,
+
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  }
+}
