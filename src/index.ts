@@ -3,14 +3,14 @@ import { readFileAsArrayBuffer, readFileAsDataURL } from "./file";
 
 const noTransformOrientations = new Set([0, 1]);
 const reversedAspectRatioOrientations = new Set([5, 6, 7, 8]);
-const transformsByOrientation: Record<number, (image: HTMLImageElement, ctx: CanvasRenderingContext2D) => void> = {
-  2: (image, ctx) => ctx.transform(-1, 0, 0, 1, image.width, 0),
-  3: (image, ctx) => ctx.transform(-1, 0, 0, -1, image.width, image.height),
-  4: (image, ctx) => ctx.transform(1, 0, 0, -1, 0, image.height),
-  5: (_image, ctx) => ctx.transform(0, 1, 1, 0, 0, 0),
-  6: (image, ctx) => ctx.transform(0, 1, -1, 0, image.height, 0),
-  7: (image, ctx) => ctx.transform(0, -1, -1, 0, image.height, image.width),
-  8: (image, ctx) => ctx.transform(0, -1, 1, 0, 0, image.width),
+const transformsByOrientation: Record<number, (image: HTMLImageElement, context: CanvasRenderingContext2D) => void> = {
+  2: (image, context) => context.transform(-1, 0, 0, 1, image.width, 0),
+  3: (image, context) => context.transform(-1, 0, 0, -1, image.width, image.height),
+  4: (image, context) => context.transform(1, 0, 0, -1, 0, image.height),
+  5: (_image, context) => context.transform(0, 1, 1, 0, 0, 0),
+  6: (image, context) => context.transform(0, 1, -1, 0, image.height, 0),
+  7: (image, context) => context.transform(0, -1, -1, 0, image.height, image.width),
+  8: (image, context) => context.transform(0, -1, 1, 0, 0, image.width),
 };
 
 const createImage = (src: string) => {
