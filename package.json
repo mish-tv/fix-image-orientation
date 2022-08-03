@@ -1,9 +1,17 @@
 {
   "name": "@mish-tv/fix-image-orientation",
   "version": "0.0.1",
-  "description": "",
+  "description": "When this function receives a Blob of an image file as an argument, it returns the dataURL with orientation applied and exif removed.",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
+  "keywords": [
+    "image",
+    "exif",
+    "orientation",
+    "png",
+    "jpeg",
+    "zero-dependency"
+  ],
   "scripts": {
     "prebuild": "rm -rf ./lib",
     "build": "tsc -b ./tsconfig.build.json ./tsconfig.build-cjs.json",
@@ -16,6 +24,9 @@
     "type": "git",
     "url": "git+https://github.com/mish-tv/fix-image-orientation.git"
   },
+  "files": [
+    "lib"
+  ],
   "author": "Koji Murata",
   "license": "MIT",
   "bugs": {
