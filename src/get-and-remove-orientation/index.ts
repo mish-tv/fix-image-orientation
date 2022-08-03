@@ -3,7 +3,7 @@ import { getAndRemovePngOrientation } from "./get-and-remove-png-orientation";
 
 type Exif = { type: "image/jpeg" | "image/png"; orientation: number };
 
-export const getAndRemoveOrientation = (dataView: DataView): Nullable<Exif> => {
+export const getAndRemoveOrientation = (dataView: DataView): Exif | undefined => {
   const jpegOrientation = getAndRemoveJpegOrientation(dataView);
   if (jpegOrientation != undefined) return { type: "image/jpeg", orientation: jpegOrientation };
 
