@@ -31,7 +31,8 @@ const createTransformedDataURL = async (blob: Blob, orientation: number, type: s
 
   if (context == undefined) throw new Error("undefined context");
 
-  const image = await createImage(URL.createObjectURL(blob));
+  const objectURL = URL.createObjectURL(blob);
+  const image = await createImage(objectURL);
 
   if (reversedAspectRatioOrientations.has(orientation)) {
     canvas.width = image.height;
@@ -41,12 +42,13 @@ const createTransformedDataURL = async (blob: Blob, orientation: number, type: s
     canvas.height = image.height;
   }
   transformsByOrientation[orientation](image, context);
-
   context.drawImage(image, 0, 0);
 
-  document.body.appendChild(canvas);
+  const url = canvas.toDataURL(type);
 
-  return canvas.toDataURL(type);
+  URL.revokeObjectURL(objectURL);
+
+  return url;
 };
 
 export const imageFileToOrientationFixedDataURL = async (file: Blob) => {

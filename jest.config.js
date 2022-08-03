@@ -3,7 +3,6 @@
 
 module.exports = {
   clearMocks: true,
-  collectCoverage: true,
   preset: "jest-puppeteer",
   resetMocks: true,
   restoreMocks: true,
