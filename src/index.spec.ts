@@ -81,7 +81,7 @@ const testCases: [string, string][] = [
 jest.setTimeout(100_000);
 describe("imageFileToOrientationFixedDataURL", () => {
   it("returns orientation fixed data url.", async () => {
-    await fs.rm(tmpDir, { recursive: true });
+    if (await isExists(tmpDir)) await fs.rm(tmpDir, { recursive: true });
     await fs.mkdir(tmpDir);
 
     const results = await Promise.all(testCases.map(([a, b]) => compare(a, b)));
